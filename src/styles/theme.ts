@@ -1,11 +1,11 @@
 export default {
   spacings: {
-    small: '4rem',
-    medium: '8rem',
-    large: '12rem',
-    xlarge: '16rem',
-    xxlarge: '24rem',
-    xxxlarge: '32rem',
+    small: '0.4rem',
+    medium: '0.8rem',
+    large: '1.2rem',
+    xlarge: '1.6rem',
+    xxlarge: '2.4rem',
+    xxxlarge: '3.2rem',
   },
   font: {
     fontFamily:
