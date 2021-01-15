@@ -5,6 +5,7 @@ export default createGlobalStyle`
     margin:0;
     padding:0;
     box-sizing:border-box;
+    text-decoration: none;
   }
 
   html{
@@ -16,7 +17,9 @@ export default createGlobalStyle`
   }
 
   body{
-    font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', 
-    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: ${({ theme }) => theme.font.fontFamily};
+    background-color: ${({ theme }) => theme.colors.white};
   }
+
+  
 `;
