@@ -1,10 +1,10 @@
 import Image from 'next/image';
 
 export type LogoProps = {
-  size: 'normal' | 'medium' | 'large';
+  size?: 'normal' | 'medium' | 'large';
 };
 
-const Logo: React.FC<LogoProps> = ({ size }) => {
+const Logo: React.FC<LogoProps> = ({ size = 'normal' }) => {
   let width = 0;
   let height = 0;
 
@@ -19,12 +19,7 @@ const Logo: React.FC<LogoProps> = ({ size }) => {
     height = 323;
   }
   return (
-    <Image
-      src="/img/logo.svg"
-      alt="Logo Pokedex"
-      height={height}
-      width={width}
-    />
+    <img src="/img/logo.svg" alt="Logo Pokedex" height={height} width={width} />
   );
 };
 
