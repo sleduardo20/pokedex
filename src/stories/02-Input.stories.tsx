@@ -6,9 +6,6 @@ import Input, { InputProps } from '../components/Input';
 export default {
   title: 'components/Input',
   component: Input,
-  args: {
-    name: 'email',
-  },
 } as Meta;
 
 export const Basic: Story<InputProps> = args => (
@@ -18,7 +15,24 @@ export const Basic: Story<InputProps> = args => (
         console.log('ok');
       }}
     >
-      <Input placeholder="Email" {...args} />
+      <Input
+        name="email"
+        placeholder="Nome do úsuario ou email"
+        type="text"
+        {...args}
+      />
+    </Form>
+  </div>
+);
+
+export const Password: Story<InputProps> = args => (
+  <div style={{ width: 450 }}>
+    <Form
+      onSubmit={() => {
+        console.log('ok');
+      }}
+    >
+      <Input name="password" placeholder="Senha" {...args} />
     </Form>
   </div>
 );

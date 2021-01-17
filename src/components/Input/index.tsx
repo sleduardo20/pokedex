@@ -6,6 +6,8 @@ import {
   useState,
 } from 'react';
 
+import { FiEye, FiEyeOff } from 'react-icons/fi';
+
 import { useField } from '@unform/core';
 
 import * as S from './styles';
@@ -66,7 +68,7 @@ const Input: React.FC<InputProps> = ({ name, placeholder, ...rest }) => {
 
       {name === 'password' && isFilled && (
         <button onClick={handleShowPassword} type="button">
-          {passwordShow ? 'Ocultar' : 'Mostrar'}
+          {passwordShow ? <FiEyeOff /> : <FiEye />}
         </button>
       )}
     </S.Container>
