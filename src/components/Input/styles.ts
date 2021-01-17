@@ -12,22 +12,22 @@ export const Container = styled.div<ContainerProps>`
     height: 3.8rem;
     background: ${theme.colors.white};
     position: relative;
-    border-radius: 0.4rem;
+    border-radius: ${theme.spacings.small};
     border: 1px solid rgba(142, 142, 142, 1);
     display: flex;
     align-items: center;
     justify-content: center;
     border: ${isFocused ? '1px solid #8F8F8F' : '1px solid #B7B7B7'};
     &:focus-within label {
-      font-size: 1rem;
+      font-size: ${theme.font.size.small} - 2;
       top: 0;
       left: 4px;
     }
     button {
       width: auto;
-      font-weight: 600;
+      font-weight: ${theme.font.bold};
       cursor: pointer;
-      padding: 0.4rem;
+      padding: ${theme.spacings.small};
       background: none;
       border: none;
     }
@@ -37,9 +37,9 @@ export const Container = styled.div<ContainerProps>`
       outline: 0;
       border: none;
       background: none;
-      padding: 0.4rem;
-      font-size: 1.2rem;
-      line-height: 1.8rem;
+      padding: ${theme.spacings.small};
+      font-size: ${theme.font.size.small};
+      line-height: ${theme.font.size.large};
     }
     label {
       width: fit-content;
@@ -47,7 +47,7 @@ export const Container = styled.div<ContainerProps>`
       top: ${isFilled ? '0' : '10px'};
       left: ${isFilled ? '4px' : '10px'};
       font-size: ${isFilled ? '1rem' : ''};
-      color: #909090;
+      color: ${theme.colors.gray};
       transition: all 0.2s ease-in-out;
       pointer-events: none;
     }

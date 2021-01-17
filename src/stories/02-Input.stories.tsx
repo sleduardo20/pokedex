@@ -18,7 +18,7 @@ export const Basic: Story<InputProps> = args => (
         console.log('ok');
       }}
     >
-      <Input name="email" placeholder="Email" {...args} />
+      <Input placeholder="Email" {...args} />
     </Form>
   </div>
 );
