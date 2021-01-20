@@ -19,7 +19,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'normal' }) => {
     height = 323;
   }
   return (
-    <img src={logoPokedex} alt="Logo Pokedex" height={height} width={width} />
+    <img src="/img/logo.png" alt="Logo Pokedex" height={height} width={width} />
   );
 };
 

@@ -8,6 +8,7 @@ type ContainerProps = {
 export const Container = styled.div<ContainerProps>`
   ${({ theme, isFocused, isFilled }) => css`
     width: 100%;
+    position: relative;
     padding: 0.2rem;
     height: 4.8rem;
     background: ${theme.colors.white};
@@ -28,6 +29,7 @@ export const Container = styled.div<ContainerProps>`
       font-size: 1rem;
       top: 0;
       left: 4px;
+      transform: translateX(0);
     }
 
     button {
@@ -56,10 +58,11 @@ export const Container = styled.div<ContainerProps>`
       line-height: ${theme.font.size.large};
     }
     label {
-      width: fit-content;
+      width: auto;
       position: absolute;
       top: ${isFilled ? '0' : '10px'};
-      left: ${isFilled ? '4px' : '10px'};
+      left: ${isFilled ? '4px' : '50%'};
+      transform: ${isFilled ? 'translateX(0)' : 'translateX(-50%)'};
       font-size: ${isFilled ? '1rem' : '1.4rem'};
       color: ${theme.colors.gray};
       transition: all 0.2s ease-in-out;
