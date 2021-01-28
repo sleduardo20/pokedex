@@ -1,12 +1,11 @@
 import { screen } from '@testing-library/react';
-import { debug } from 'console';
 import { renderWithTheme } from 'util/renderWithTheme';
 
 import Wrapper from '.';
 
 describe('<Wrapper/>', () => {
   it('should be able render Wrapper correctly', () => {
-    renderWithTheme(
+    const { container } = renderWithTheme(
       <Wrapper>
         <h1>Title</h1>
         <span>Content</span>
@@ -15,5 +14,6 @@ describe('<Wrapper/>', () => {
 
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
     expect(screen.getByText('Content')).toBeInTheDocument();
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
