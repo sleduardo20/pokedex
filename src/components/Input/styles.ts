@@ -7,18 +7,17 @@ type ContainerProps = {
 
 export const Container = styled.div<ContainerProps>`
   ${({ theme, isFocused, isFilled }) => css`
-    width: 100%;
+    width: ${isFilled ? '34.8rem' : '100%'};
     position: relative;
     padding: 0.2rem;
     height: 4.8rem;
     background: ${theme.colors.white};
     position: relative;
     border-radius: ${theme.spacings.small};
-    border: 1px solid rgba(142, 142, 142, 1);
+    border: 1px solid ${isFilled ? theme.colors.ternary : theme.colors.gray};
     display: flex;
     align-items: center;
     justify-content: center;
-    border: ${isFocused ? '1px solid #8F8F8F' : '1px solid #B7B7B7'};
     transition: 0.4s ease-out;
 
     &:focus-within {
@@ -44,7 +43,7 @@ export const Container = styled.div<ContainerProps>`
       svg {
         width: 2.4rem;
         height: 2.4rem;
-        color: ${theme.colors.gray};
+        color: ${isFilled ? theme.colors.ternary : theme.colors.gray};
       }
     }
     input {
@@ -64,7 +63,7 @@ export const Container = styled.div<ContainerProps>`
       left: ${isFilled ? '4px' : '50%'};
       transform: ${isFilled ? 'translateX(0)' : 'translateX(-50%)'};
       font-size: ${isFilled ? '1rem' : '1.4rem'};
-      color: ${theme.colors.gray};
+      color: ${isFilled ? theme.colors.ternary : theme.colors.gray};
       transition: all 0.2s ease-in-out;
       pointer-events: none;
     }
