@@ -2,12 +2,14 @@ import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    width: min(110rem, 100%);
-    background: ${theme.colors.white};
+    width: max(36rem, 100%);
+    height: 100vh;
+    margin: 0 auto;
+    background: url('/img/bgPokbola.svg') no-repeat center;
+    background-color: ${theme.colors.white};
+    background-size: cover;
+    flex: 1;
+    display: flex;
+    justify-content: center;
   `}
-`;
-
-export const Pokeballs = styled.div`
-  background-image: url('/img/bgPokbola.svg');
-  background-size: cover;
 `;

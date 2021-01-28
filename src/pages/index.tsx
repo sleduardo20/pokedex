@@ -1,5 +1,11 @@
+import Container from 'components/Container';
+
 const Home: React.FC = () => {
-  return <h1>home</h1>;
+  return (
+    <Container>
+      <h1>home</h1>
+    </Container>
+  );
 };
 
 export default Home;
