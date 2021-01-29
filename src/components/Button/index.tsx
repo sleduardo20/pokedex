@@ -2,10 +2,20 @@ import { ButtonHTMLAttributes } from 'react';
 
 import { Container } from './styles';
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  bg: 'primary' | 'secondary' | 'darkBlue';
+}
 
-const Button: React.FC<ButtonProps> = ({ children, ...rest }) => {
-  return <Container {...rest}>{children}</Container>;
+const Button: React.FC<ButtonProps> = ({
+  bg = 'darkBlue',
+  children,
+  ...rest
+}) => {
+  return (
+    <Container bg={bg} {...rest}>
+      {children}
+    </Container>
+  );
 };
 
 export default Button;
