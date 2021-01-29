@@ -30,6 +30,12 @@ export const Container = styled.button<ContainerProps>`
     font-weight: ${theme.font.light};
     text-transform: uppercase;
     color: ${theme.colors.white};
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      filter: brightness(90%);
+    }
 
     ${!!bg && modifiers[bg](theme)};
   `}
