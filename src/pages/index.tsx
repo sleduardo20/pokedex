@@ -1,11 +1,7 @@
-import Container from 'components/Container';
+import Home from 'templates/Home';
 
-const Home: React.FC = () => {
-  return (
-    <Container>
-      <h1>home</h1>
-    </Container>
-  );
+const Auth: React.FC = () => {
+  return <Home />;
 };
 
-export default Home;
+export default Auth;

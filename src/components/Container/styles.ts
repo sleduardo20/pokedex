@@ -8,8 +8,9 @@ export const Wrapper = styled.div`
     background: url('/img/bgPokbola.svg') no-repeat center;
     background-color: ${theme.colors.white};
     background-size: cover;
-    flex: 1;
     display: flex;
-    justify-content: center;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
   `}
 `;
