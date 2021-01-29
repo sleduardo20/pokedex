@@ -1,15 +1,27 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Header = styled.header`
   ${({ theme }) => css`
     width: 100%;
-    height: 28rem;
+    height: 18rem;
     background: ${theme.colors.primary};
     display: flex;
     justify-content: center;
 
+    ${media.greaterThan('medium')`
+    height: 28rem;
+    `}
+
     img {
-      margin-top: ${theme.spacings.xxxlarge};
+      margin-top: calc(${theme.spacings.xxxlarge} * 2);
+
+      ${media.greaterThan('medium')`
+        margin-top: ${theme.spacings.xxxlarge};
+        width: 79.8rem;
+        height: 32.3rem;
+      
+      `}
     }
   `}
 `;

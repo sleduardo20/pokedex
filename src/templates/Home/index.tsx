@@ -11,7 +11,7 @@ const Home: React.FC = () => {
   return (
     <Container>
       <S.Header>
-        <Logo size="large" />
+        <Logo />
       </S.Header>
 
       <S.WrapperForm>
