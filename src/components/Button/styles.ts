@@ -1,7 +1,9 @@
+import { motion, MotionProps } from 'framer-motion';
 import styled, { css, DefaultTheme } from 'styled-components';
-import { ButtonProps } from '.';
 
-type ContainerProps = Pick<ButtonProps, 'bg'>;
+type ContainerProps = {
+  bg?: 'primary' | 'secondary' | 'darkBlue';
+} & MotionProps;
 
 const modifiers = {
   primary: (theme: DefaultTheme) => css`
@@ -15,10 +17,10 @@ const modifiers = {
   `,
 };
 
-export const Container = styled.button<ContainerProps>`
+export const Container = styled(motion.button)<ContainerProps>`
   ${({ theme, bg }) => css`
     width: 24.3rem;
-    height: 4.8rem;
+    height: 3.8rem;
     padding: ${theme.spacings.small};
     display: flex;
     justify-content: center;
@@ -29,12 +31,12 @@ export const Container = styled.button<ContainerProps>`
     font-size: ${theme.font.size.large};
     font-weight: ${theme.font.light};
     text-transform: uppercase;
-    color: ${theme.colors.white};
+    color: ${theme.colors.darkBlue};
     cursor: pointer;
-    transition: 0.2s ease-in-out;
+    transition: filter 0.2s ease-in-out;
 
     &:hover {
-      filter: brightness(90%);
+      filter: brightness(110%);
     }
 
     ${!!bg && modifiers[bg](theme)};
