@@ -14,8 +14,8 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <Container
       bg={bg}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.99 }}
       {...rest}
     >
       {children}
