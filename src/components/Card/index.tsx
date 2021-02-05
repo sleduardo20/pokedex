@@ -1,9 +1,16 @@
 import * as S from './styles';
 
-const Card: React.FC = () => {
+export interface CardProps {
+  title: string;
+  size: 'normal' | 'large';
+  src: string;
+}
+
+const Card: React.FC<CardProps> = ({ title, size, src, children }) => {
   return (
-    <S.Container>
-      <h1>Card</h1>
+    <S.Container size={size}>
+      <img src={src} alt={title} />
+      {children}
     </S.Container>
   );
 };
