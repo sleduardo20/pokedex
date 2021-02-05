@@ -37,11 +37,11 @@ const Input: React.FC<InputProps> = ({ name, placeholder, ...rest }) => {
     setIsFocused(true);
   }, []);
 
-  const handleBlur = useCallback(() => {
+  const handleOnBlur = useCallback(() => {
     setIsFocused(false);
   }, []);
 
-  const handleFilled = useCallback(text => {
+  const handleOnFilled = useCallback(text => {
     if (text) {
       setIsFilled(true);
     } else {
@@ -60,9 +60,9 @@ const Input: React.FC<InputProps> = ({ name, placeholder, ...rest }) => {
         ref={inputRef}
         name={name}
         onFocus={handelOnFocus}
-        onBlur={handleBlur}
+        onBlur={handleOnBlur}
         type={passwordShow ? 'text' : 'password'}
-        onChange={e => handleFilled(e.target.value)}
+        onChange={e => handleOnFilled(e.target.value)}
         {...rest}
       />
 
