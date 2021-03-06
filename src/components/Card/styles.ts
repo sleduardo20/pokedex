@@ -1,6 +1,6 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { CardProps } from '.';
+import { CardProps, ImageProps } from '.';
 
 type ContainerProps = Pick<CardProps, 'size'>;
 
@@ -16,7 +16,7 @@ const containerModifiers = {
 };
 
 export const Container = styled.div<ContainerProps>`
-  ${({ theme, size }) => css`
+  ${({ size }) => css`
     border-radius: 0.8rem;
 
     > img {
