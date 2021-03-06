@@ -6,7 +6,7 @@ type ContainerProps = {
 };
 
 export const Container = styled.div<ContainerProps>`
-  ${({ theme, isFocused, isFilled }) => css`
+  ${({ theme, isFilled }) => css`
     width: ${isFilled ? '34.8rem' : '100%'};
     position: relative;
     padding: 0.2rem;
