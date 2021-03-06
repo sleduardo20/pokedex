@@ -8,12 +8,15 @@ type ContainerProps = {
 const modifiers = {
   primary: (theme: DefaultTheme) => css`
     background: ${theme.colors.primary};
+    color: ${theme.colors.white};
   `,
   secondary: (theme: DefaultTheme) => css`
     background: ${theme.colors.secondary};
+    color: ${theme.colors.darkBlue};
   `,
   darkBlue: (theme: DefaultTheme) => css`
     background: ${theme.colors.darkBlue};
+    color: ${theme.colors.white};
   `,
 };
 
@@ -29,9 +32,9 @@ export const Container = styled(motion.button)<ContainerProps>`
     outline: none;
     border: none;
     font-size: ${theme.font.size.large};
-    font-weight: ${theme.font.light};
+    font-weight: ${theme.font.medium};
     text-transform: uppercase;
-    color: ${theme.colors.darkBlue};
+
     cursor: pointer;
     transition: filter 0.2s ease-in-out;
 
