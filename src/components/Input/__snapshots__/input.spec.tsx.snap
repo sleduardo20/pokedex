@@ -41,7 +41,7 @@ exports[`Input should be able render Input correctly 1`] = `
 
 .c0 button {
   width: auto;
-  font-weight: 800;
+  font-weight: 900;
   cursor: pointer;
   padding: 0.4rem;
   outline: none;
