@@ -1,15 +1,22 @@
+import Image from 'next/image';
+
 import * as S from './styles';
 
 export interface CardProps {
-  title: string;
+  name: string;
   size: 'normal' | 'large';
-  src: string;
+  imageUrlHiRes: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, size, src, children }) => {
+const Card: React.FC<CardProps> = ({
+  name,
+  imageUrlHiRes,
+  size = 'normal',
+  children,
+}) => {
   return (
     <S.Container size={size}>
-      <img src={src} alt={title} />
+      <img src={imageUrlHiRes} alt={name} />
       {children}
     </S.Container>
   );
