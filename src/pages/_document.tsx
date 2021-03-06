@@ -36,7 +36,14 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="pt-BR">
-        <Head />
+        <Head>
+          <title>Pokedex</title>
+          <link
+            rel="shortcut icon"
+            href="/img/favicon.png"
+            type="image/x-icon"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
