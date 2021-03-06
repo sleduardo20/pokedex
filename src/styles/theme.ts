@@ -8,12 +8,11 @@ export default {
     xxxlarge: '3.2rem',
   },
   font: {
-    fontFamily:
-      "Roboto, --apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
-    bold: 800,
-    regular: 400,
+    fontFamily: 'Roboto, sans-serif',
     light: 300,
+    regular: 400,
     medium: 700,
+    bold: 900,
 
     size: {
       small: '1.2rem',
