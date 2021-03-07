@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Link from 'next/link';
 
 import * as S from './styles';
 
@@ -6,6 +6,7 @@ export interface CardProps {
   name: string;
   size: 'normal' | 'large';
   imageUrlHiRes: string;
+  slug: string;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -13,11 +14,16 @@ const Card: React.FC<CardProps> = ({
   imageUrlHiRes,
   size = 'normal',
   children,
+  slug,
 }) => {
   return (
     <S.Container size={size}>
-      <img src={imageUrlHiRes} alt={name} />
-      {children}
+      <Link href={`http://localhost:3000/details/${slug}`} passHref>
+        <a>
+          <img src={imageUrlHiRes} alt={name} />
+          {children}
+        </a>
+      </Link>
     </S.Container>
   );
 };
