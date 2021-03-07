@@ -14,9 +14,10 @@ import * as S from './styles';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
+  icon?: React.ReactNode;
 }
 
-const Input: React.FC<InputProps> = ({ name, placeholder, ...rest }) => {
+const Input: React.FC<InputProps> = ({ name, placeholder, icon, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFocused, setIsFocused] = useState(false);
@@ -65,6 +66,8 @@ const Input: React.FC<InputProps> = ({ name, placeholder, ...rest }) => {
         onChange={e => handleOnFilled(e.target.value)}
         {...rest}
       />
+
+      {icon}
 
       {name === 'password' && isFilled && (
         <button onClick={handleShowPassword} type="button">
