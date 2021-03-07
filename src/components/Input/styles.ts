@@ -20,6 +20,12 @@ export const Container = styled.div<ContainerProps>`
     justify-content: center;
     transition: 0.4s ease-out;
 
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+      color: ${isFilled ? theme.colors.ternary : theme.colors.gray};
+    }
+
     &:focus-within {
       width: 34.8rem;
     }
@@ -49,11 +55,12 @@ export const Container = styled.div<ContainerProps>`
     input {
       width: 100%;
       height: 95%;
+      margin-top: ${theme.spacings.medium};
       outline: 0;
       border: none;
       background: none;
       padding: ${theme.spacings.small};
-      font-size: ${theme.font.size.small};
+      font-size: ${theme.font.size.large};
       line-height: ${theme.font.size.large};
     }
     label {
