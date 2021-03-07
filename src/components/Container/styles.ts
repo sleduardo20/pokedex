@@ -2,12 +2,16 @@ import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    width: 100%;
-    height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
+
     margin: 0 auto;
-    background: url('/img/bgPokbola.svg') no-repeat center;
+    background: url('/img/bgPokbola.svg') no-repeat center center fixed;
     background-color: ${theme.colors.white};
     background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+
     display: flex;
     flex: 1;
     flex-direction: column;
