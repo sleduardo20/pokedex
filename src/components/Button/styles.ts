@@ -23,7 +23,7 @@ const modifiers = {
 export const Container = styled(motion.button)<ContainerProps>`
   ${({ theme, bg }) => css`
     width: 24.3rem;
-    height: 3.8rem;
+    height: 4.8rem;
     padding: ${theme.spacings.small};
     display: flex;
     justify-content: center;
