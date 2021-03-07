@@ -1,27 +1,23 @@
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 
-export const Header = styled.header`
+export const HeaderContent = styled.div`
   ${({ theme }) => css`
     width: 100%;
-    height: 18rem;
-    background: ${theme.colors.primary};
+    height: 100%;
+
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
-    ${media.greaterThan('medium')`
-    height: 28rem;
-    `}
+      img:first-child {
+        margin-top: calc(${theme.spacings.xxxlarge} * 2);
 
-    img {
-      margin-top: calc(${theme.spacings.xxxlarge} * 2);
-
-      ${media.greaterThan('medium')`
-        margin-top: ${theme.spacings.xxxlarge};
-        width: 79.8rem;
-        height: 32.3rem;
-      
-      `}
+        ${media.lessThan('medium')`
+          width : 36.6rem;
+          height : 14.9rem;
+        `}
+      }
     }
   `}
 `;
