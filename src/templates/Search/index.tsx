@@ -8,8 +8,8 @@ import Header from 'components/Header';
 import Input from 'components/Input';
 import Logo from 'components/Logo';
 import Card from 'components/Card';
+import Icon from 'components/Icon';
 
-import Link from 'next/link';
 import mockCard from '../../components/Card/mock';
 
 import * as S from './styles';
@@ -22,14 +22,9 @@ const TemplateSeach = () => {
           <S.HeaderContent>
             <div>
               <Logo />
-              <S.Icon onClick={() => console.log('ok')}>
-                <Link href="http://localhost:3000" passHref>
-                  <a>
-                    Sair
-                    <FiPower />
-                  </a>
-                </Link>
-              </S.Icon>
+              <Icon link="http://localhost:3000" icon={<FiPower />}>
+                Sair
+              </Icon>
             </div>
             <Form onSubmit={() => {}}>
               <Input
