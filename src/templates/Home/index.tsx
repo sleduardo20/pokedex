@@ -26,7 +26,7 @@ const Home: React.FC = () => {
       <S.WrapperForm>
         <Form
           onSubmit={() => {
-            push('/details');
+            push('/search');
           }}
         >
           <Input
