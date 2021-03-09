@@ -2,7 +2,7 @@ import { Form } from '@unform/web';
 import Button from 'components/Button';
 
 import Container from 'components/Container';
-import { Content } from 'components/Content';
+import Content from 'components/Content';
 import Header from 'components/Header';
 import Input from 'components/Input';
 import Logo from 'components/Logo';
@@ -23,23 +23,25 @@ const Home: React.FC = () => {
         </Content>
       </Header>
 
-      <S.WrapperForm>
-        <Form
-          onSubmit={() => {
-            push('/search');
-          }}
-        >
-          <Input
-            name="user"
-            placeholder="Nome do usuário ou email"
-            type="text"
-          />
-          <Input name="password" placeholder="Senha" />
-          <Button bg="secondary" type="submit">
-            Entrar
-          </Button>
-        </Form>
-      </S.WrapperForm>
+      <Content>
+        <S.WrapperForm>
+          <Form
+            onSubmit={() => {
+              push('/search');
+            }}
+          >
+            <Input
+              name="user"
+              placeholder="Nome do usuário ou email"
+              type="text"
+            />
+            <Input name="password" placeholder="Senha" />
+            <Button bg="secondary" type="submit">
+              Entrar
+            </Button>
+          </Form>
+        </S.WrapperForm>
+      </Content>
     </Container>
   );
 };

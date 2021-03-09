@@ -5,12 +5,10 @@ export const HeaderContent = styled.div`
   ${({ theme }) => css`
     width: 100%;
     height: 100%;
-
     display: flex;
     flex-direction: column;
-
+    
     div {
-      
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -18,8 +16,6 @@ export const HeaderContent = styled.div`
       ${media.lessThan('medium')`
          margin-top: ${theme.spacings.small};
          margin-left: ${theme.spacings.small};
-
-         
       `}
 
       img {
@@ -36,8 +32,7 @@ export const HeaderContent = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
-      
-
+    
       div{
         width: 81.5rem;
         
@@ -48,7 +43,6 @@ export const HeaderContent = styled.div`
 
       ${media.lessThan('medium')`
         width: 90%;
-        
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -60,12 +54,12 @@ export const HeaderContent = styled.div`
 
           &:focus-within {
             width: 24rem;
+            }
           }
-        }
-      `}
+        `}
+      }
     }
-  }
-`}
+  `}
 `;
 
 export const WrapperCards = styled.main`
@@ -73,6 +67,7 @@ export const WrapperCards = styled.main`
     width: 100%;
     padding: ${theme.spacings.xxlarge};
     margin-top: calc(${theme.spacings.xxxlarge} * 2);
+    margin-bottom: calc(${theme.spacings.xxxlarge} * 2);
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 1.2rem;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);

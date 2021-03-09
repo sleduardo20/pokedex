@@ -3,7 +3,7 @@ import { FiPower, FiSearch } from 'react-icons/fi';
 
 import Button from 'components/Button';
 import Container from 'components/Container';
-import { Content } from 'components/Content';
+import Content from 'components/Content';
 import Header from 'components/Header';
 import Input from 'components/Input';
 import Logo from 'components/Logo';
