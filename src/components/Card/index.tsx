@@ -5,13 +5,16 @@ import * as S from './styles';
 export interface CardProps {
   name: string;
   size: 'normal' | 'large';
-  imageUrlHiRes: string;
+  images: {
+    small: string;
+    large: string;
+  };
   slug: string;
 }
 
 const Card: React.FC<CardProps> = ({
   name,
-  imageUrlHiRes,
+  images,
   size = 'normal',
   children,
   slug,
@@ -20,7 +23,7 @@ const Card: React.FC<CardProps> = ({
     <S.Container size={size}>
       <Link href={`http://localhost:3000/details/${slug}`} passHref>
         <a>
-          <img src={imageUrlHiRes} alt={name} />
+          <img src={images.large} alt={name} />
           {children}
         </a>
       </Link>
