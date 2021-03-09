@@ -55,6 +55,7 @@ export default createGlobalStyle`
 
   body{
     font-family: ${({ theme }) => theme.font.fontFamily};
+    font-size: 1.6rem;
     background-color: ${({ theme }) => theme.colors.white};
   }
 `;
