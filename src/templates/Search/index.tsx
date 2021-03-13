@@ -63,7 +63,7 @@ const TemplateSeach = ({ listPokemons }: SearchProps) => {
           <S.HeaderContent>
             <div>
               <Logo />
-              <Icon link="http://localhost:3000/" icon={<FiPower />}>
+              <Icon link={`${process.env.NEXT_PUBLIC_HOST}`} icon={<FiPower />}>
                 Sair
               </Icon>
             </div>

@@ -16,9 +16,12 @@ const Details = () => {
       <Header>
         <Content>
           <S.HeaderContent>
-            <Icon link="http://localhost:3000/search" icon={<FiArrowLeft />} />
+            <Icon
+              link={`${process.env.NEXT_PUBLIC_HOST}/search`}
+              icon={<FiArrowLeft />}
+            />
             <Logo size="medium" />
-            <Icon link="http://localhost:3000" icon={<FiPower />}>
+            <Icon link={`${process.env.NEXT_PUBLIC_HOST}`} icon={<FiPower />}>
               <span>Sair</span>
             </Icon>
           </S.HeaderContent>
@@ -27,7 +30,7 @@ const Details = () => {
       <Content>
         <S.WrapperDetails>
           <S.SectionCard>
-            <Card size="large" {...mock} slug={mock.name} />
+            <Card size="large" {...mock} />
           </S.SectionCard>
 
           <S.SectionDetails>

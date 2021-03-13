@@ -9,7 +9,7 @@ export default {
   args: {
     name: mock.name,
     size: 'large',
-    imageUrlHiRes: mock.imageUrlHiRes,
+    imageUrlHiRes: mock.images.large,
     slug: mock.name,
   },
 } as Meta;
