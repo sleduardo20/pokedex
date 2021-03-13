@@ -34,10 +34,10 @@ export const HeaderContent = styled.div`
       justify-content: space-between;
     
       div{
-        width: 81.5rem;
+        width: 57rem;
         
         &:focus-within {
-        width: 74.8rem;
+        width: 47rem;
         }
       }
 
