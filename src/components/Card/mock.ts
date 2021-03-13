@@ -1,48 +1,100 @@
 export default {
-  id: 'sm9-162',
-  name: 'Pikachu & Zekrom-GX',
-  supertype: 'Pokémon',
-  hp: '240',
-  types: ['Lightning'],
-  evolvesTo: ['Raichu'],
-  images: {
-    small: 'https://images.pokemontcg.io/sm9/162.png',
-    large: 'https://images.pokemontcg.io/sm9/162_hires.png',
+  data: {
+    id: 'pl1-1',
+    name: 'Ampharos',
+    supertype: 'Pokémon',
+    subtypes: ['Stage 2'],
+    level: '57',
+    hp: '130',
+    types: ['Lightning'],
+    evolvesFrom: 'Flaaffy',
+    abilities: [
+      {
+        name: 'Damage Bind',
+        text:
+          "Each Pokémon that has any damage counters on it (both yours and your opponent's) can't use any Poké-Powers.",
+        type: 'Poké-Body',
+      },
+    ],
+    attacks: [
+      {
+        name: 'Gigavolt',
+        cost: ['Lightning', 'Colorless'],
+        convertedEnergyCost: 2,
+        damage: '30+',
+        text:
+          'Flip a coin. If heads, this attack does 30 damage plus 30 more damage. If tails, the Defending Pokémon is now Paralyzed.',
+      },
+      {
+        name: 'Reflect Energy',
+        cost: ['Lightning', 'Colorless', 'Colorless'],
+        convertedEnergyCost: 3,
+        damage: '70',
+        text:
+          'Move an Energy card attached to Ampharos to 1 of your Benched Pokémon.',
+      },
+    ],
+    weaknesses: [
+      {
+        type: 'Fighting',
+        value: '+30',
+      },
+    ],
+    resistances: [
+      {
+        type: 'Metal',
+        value: '-20',
+      },
+    ],
+    retreatCost: ['Colorless', 'Colorless'],
+    convertedRetreatCost: 2,
+    set: {
+      id: 'pl1',
+      name: 'Platinum',
+      series: 'Platinum',
+      printedTotal: 127,
+      total: 130,
+      legalities: {
+        unlimited: 'Legal',
+      },
+      ptcgoCode: 'PL',
+      releaseDate: '2009/02/11',
+      updatedAt: '2020/08/14 09:35:00',
+      images: {
+        symbol: 'https://images.pokemontcg.io/pl1/symbol.png',
+        logo: 'https://images.pokemontcg.io/pl1/logo.png',
+      },
+    },
+    number: '1',
+    artist: 'Atsuko Nishida',
+    rarity: 'Rare Holo',
+    nationalPokedexNumbers: [181],
+    legalities: {
+      unlimited: 'Legal',
+    },
+    images: {
+      small: 'https://images.pokemontcg.io/pl1/1.png',
+      large: 'https://images.pokemontcg.io/pl1/1_hires.png',
+    },
+    tcgplayer: {
+      url: 'https://prices.pokemontcg.io/tcgplayer/pl1-1',
+      updatedAt: '2021/03/09',
+      prices: {
+        holofoil: {
+          low: 5.68,
+          mid: 6.75,
+          high: 8.9,
+          market: 3.56,
+          directLow: null,
+        },
+        reverseHolofoil: {
+          low: 0.94,
+          mid: 7.97,
+          high: 15.0,
+          market: 2.16,
+          directLow: null,
+        },
+      },
+    },
   },
-  rules: [
-    'TAG TEAM rule: When your TAG TEAM is Knocked Out, your opponent takes 3 Prize cards.',
-  ],
-  attacks: [
-    {
-      name: 'Full Blitz',
-      damage: '150',
-      text:
-        'Search your deck for up to 3 Lightning Energy cards and attach them to 1 of your Pokémon. Then, shuffle your deck.',
-    },
-    {
-      name: 'Tag Bolt-GX',
-      damage: '200',
-      text:
-        "If this Pokémon has at least 3 extra Lightning Energy attached to it (in addition to this attack's cost), this attack does 170 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)",
-    },
-  ],
-  weaknesses: [
-    {
-      type: 'Fighting',
-      value: '×2',
-    },
-  ],
-  resistances: [
-    {
-      type: 'Metal',
-      value: '-20',
-    },
-  ],
-  retreatCost: ['Colorless', 'Colorless', 'Colorless'],
-  set: {
-    id: 'sm9',
-    name: 'Team Up',
-  },
-  artist: '5ban Graphics',
-  rarity: 'Rare Ultra',
 };
