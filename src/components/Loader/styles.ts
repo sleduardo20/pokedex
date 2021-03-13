@@ -3,6 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   height: 100%;
+
+  span {
+    position: absolute;
+    left: 51.5%;
+    top: 74.5%;
+  }
 `;
 
 export const Base = styled.div`
@@ -10,8 +16,8 @@ export const Base = styled.div`
   height: 2rem;
   background-color: rgba(0, 0, 0, 0.5);
   filter: blur(3px);
-  position: absolute;
   border-radius: 50%;
+  position: absolute;
   left: 50%;
   top: 72%;
 `;
