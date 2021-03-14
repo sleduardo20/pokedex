@@ -27,7 +27,7 @@ interface FormData {
 }
 
 const DynamicCard = dynamic(() => import('../../components/Card'), {
-  loading: ({ timedOut }) => <Loader />,
+  loading: ({ isLoading }) => <Loader />,
 });
 
 const TemplateSeach = ({ listPokemons }: SearchProps) => {
@@ -37,16 +37,18 @@ const TemplateSeach = ({ listPokemons }: SearchProps) => {
     listPokemons.data,
   );
 
+  const [loading, setIsLoading] = useState(false);
+
   const [pokemons, setPokemons] = useState<CardProps[]>(listPokemons.data);
 
   const handleSubmit = (formData: FormData) => {
     const { name } = formData;
 
-    const cards = listDefault?.filter(pokemom =>
+    const cards = listDefault.filter(pokemom =>
       pokemom.name.toLowerCase().includes(name.toLowerCase().trim()),
     );
 
-    if (cards?.length === 0) return alert('pokemom not found');
+    if (cards.length === 0) return alert('pokemom not found');
 
     setPokemons(cards);
   };
@@ -63,7 +65,10 @@ const TemplateSeach = ({ listPokemons }: SearchProps) => {
           <S.HeaderContent>
             <div>
               <Logo />
-              <Icon link={`${process.env.NEXT_PUBLIC_HOST}`} icon={<FiPower />}>
+              <Icon
+                link={`${process.env.NEXT_PUBLIC_HOSTNAME}`}
+                icon={<FiPower />}
+              >
                 Sair
               </Icon>
             </div>
@@ -83,9 +88,9 @@ const TemplateSeach = ({ listPokemons }: SearchProps) => {
         </Content>
       </Header>
       <Content>
-        <h2>Cards: {pokemons.length}</h2>
+        <h2>{pokemons.length} Cards </h2>
         <S.WrapperCards>
-          {pokemons?.map(card => (
+          {pokemons.map(card => (
             <DynamicCard key={card.id} {...card} />
           ))}
         </S.WrapperCards>

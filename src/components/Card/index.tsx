@@ -50,7 +50,7 @@ export interface CardProps {
 const Card: React.FC<CardProps> = ({ name, images, children }) => {
   return (
     <S.Container size="normal">
-      <Link href={`${process.env.NEXT_PUBLIC_HOST}/details/${name}`}>
+      <Link href={`${process.env.NEXT_PUBLIC_HOSTNAME}details/${name}`}>
         <a>
           <img src={images.large} alt={name} />
 

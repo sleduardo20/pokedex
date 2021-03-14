@@ -17,11 +17,14 @@ const Details = () => {
         <Content>
           <S.HeaderContent>
             <Icon
-              link={`${process.env.NEXT_PUBLIC_HOST}/search`}
+              link={`${process.env.NEXT_PUBLIC_HOSTNAME}/search`}
               icon={<FiArrowLeft />}
             />
             <Logo size="medium" />
-            <Icon link={`${process.env.NEXT_PUBLIC_HOST}`} icon={<FiPower />}>
+            <Icon
+              link={`${process.env.NEXT_PUBLIC_HOSTNAME}`}
+              icon={<FiPower />}
+            >
               <span>Sair</span>
             </Icon>
           </S.HeaderContent>
@@ -30,7 +33,7 @@ const Details = () => {
       <Content>
         <S.WrapperDetails>
           <S.SectionCard>
-            <Card size="large" {...mock} />
+            <Card {...mock} />
           </S.SectionCard>
 
           <S.SectionDetails>
