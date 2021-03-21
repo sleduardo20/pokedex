@@ -8,11 +8,23 @@ const Search = (props: SearchProps) => {
 export default Search;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const listPokemons = await api.get('cards').then(response => response.data);
+  const data = await api.get<SearchProps>('cards').then(response => {
+    const dataFormated = response.data.data.map(item => ({
+      id: item.id,
+      name: item.name,
+      images: item.images,
+      attacks: item.attacks || [],
+      resistances: item.resistances || [],
+      set: item.set,
+      weaknesses: item.weaknesses || [],
+    }));
+
+    return dataFormated;
+  });
 
   return {
     props: {
-      listPokemons,
+      data,
     },
   };
 };
