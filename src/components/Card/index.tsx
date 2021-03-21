@@ -31,26 +31,21 @@ type Set = {
 export interface CardProps {
   id: string;
   name: string;
-  supertype?: string;
-  level?: string;
-  hp?: string;
-  types?: [];
-  evolvesTo?: [];
   images: Image;
-  rules?: [];
-  attacks?: Attacks[];
-  weaknesses?: Weaknesses[];
-  resistances?: Resistances[];
-  retreatCost?: [];
-  set?: Set;
-  artist?: string;
-  rarity?: string;
+  attacks: Attacks[];
+  resistances: Resistances[];
+  set: Set;
+  weaknesses: Weaknesses[];
+  size?: 'normal' | 'large';
 }
 
-const Card: React.FC<CardProps> = ({ name, images, children }) => {
+const Card: React.FC<CardProps> = ({ id, images, name, children }) => {
   return (
     <S.Container size="normal">
-      <Link href={`${process.env.NEXT_PUBLIC_HOSTNAME}details/${name}`}>
+      <Link
+        key={id}
+        href={`${process.env.NEXT_PUBLIC_HOSTNAME}details/${name}`}
+      >
         <a>
           <img src={images.large} alt={name} />
 
