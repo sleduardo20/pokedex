@@ -21,7 +21,7 @@ export interface SearchProps {
   data: CardProps[];
 }
 
-interface FormlistPokemons {
+interface FormData {
   name: string;
 }
 
@@ -34,9 +34,7 @@ const TemplateSeach = ({ data }: SearchProps) => {
 
   const [pokemons, setPokemons] = useState<CardProps[]>(data);
 
-  const handleSubmit = (formData: FormData) => {
-    const { name } = formData;
-
+  const handleSubmit = ({ name }: FormData) => {
     const cards = listDefault.filter(pokemom =>
       pokemom.name.toLowerCase().includes(name.toLowerCase().trim()),
     );
@@ -58,10 +56,7 @@ const TemplateSeach = ({ data }: SearchProps) => {
           <S.HeaderContent>
             <div>
               <Logo />
-              <Icon
-                link={`${process.env.NEXT_PUBLIC_HOSTNAME}`}
-                icon={<FiPower />}
-              >
+              <Icon link="/" icon={<FiPower />}>
                 Sair
               </Icon>
             </div>
