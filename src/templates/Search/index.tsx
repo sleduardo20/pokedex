@@ -76,12 +76,14 @@ const TemplateSeach = ({ data }: SearchProps) => {
         </Content>
       </Header>
       <Content>
-        <h2>{pokemons.length} Cards </h2>
-        <S.WrapperCards>
-          {pokemons.map(card => (
-            <Card key={card.id} {...card} />
-          ))}
-        </S.WrapperCards>
+        <S.WrapperContent>
+          <h2> {pokemons.length} cards </h2>
+          <S.WrapperCards>
+            {pokemons.map(card => (
+              <Card key={card.id} {...card} />
+            ))}
+          </S.WrapperCards>
+        </S.WrapperContent>
       </Content>
     </Container>
   );

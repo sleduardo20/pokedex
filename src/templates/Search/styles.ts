@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
+import theme from 'styles/theme';
 
 export const HeaderContent = styled.div`
   ${({ theme }) => css`
@@ -84,5 +85,19 @@ export const WrapperCards = styled.main`
     margin-top: ${theme.spacings.xxxlarge};
     
     `}
+  `}
+`;
+
+export const WrapperContent = styled.div`
+  ${({ theme }) => css`
+    margin-top: ${theme.spacings.xxxlarge};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+      font-size: ${theme.font.size.xlarge};
+      color: ${theme.colors.darkBlue};
+    }
   `}
 `;

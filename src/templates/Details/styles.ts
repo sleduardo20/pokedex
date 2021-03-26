@@ -29,7 +29,7 @@ export const SectionCard = styled.section``;
 export const SectionDetails = styled.section`
   ${({ theme }) => css`
     width: 66.8rem;
-    height: 61.4rem;
+    height: min-content;
     padding: ${theme.spacings.xxxlarge};
     border-radius: ${theme.spacings.medium};
     background-color: rgba(255, 255, 255, 0.8);
