@@ -1,7 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { ParsedUrlQuery } from 'querystring';
 import api from 'services/api';
 
 import TemplateDetails, { DetailsProps } from '../../templates/Details';
+
+interface Params extends ParsedUrlQuery {
+  id: string;
+}
 
 const Details = (props: DetailsProps) => {
   return <TemplateDetails {...props} />;
@@ -16,11 +21,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { id }: any = params;
-
+export const getStaticProps: GetStaticProps<Params> = async ({ params }) => {
   const { data } = await api
-    .get(`/cards/${id}`)
+    .get(`/cards/${params!.id}`)
     .then(response => response.data);
 
   const retreatCost = data.retreatCost ?? '';
