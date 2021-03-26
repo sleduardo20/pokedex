@@ -6,11 +6,13 @@ import Icon from 'components/Icon';
 import Logo from 'components/Logo';
 import { FiArrowLeft, FiPower } from 'react-icons/fi';
 
-import mock from '../../components/Card/mock';
-
 import * as S from './styles';
 
-const Details = () => {
+export interface DetailsProps {
+  name: string;
+}
+
+const Details = ({ name }: DetailsProps) => {
   return (
     <Container>
       <Header>
@@ -32,12 +34,10 @@ const Details = () => {
       </Header>
       <Content>
         <S.WrapperDetails>
-          <S.SectionCard>
-            <Card {...mock} />
-          </S.SectionCard>
+          <S.SectionCard>{/* <Card {...mock} /> */}</S.SectionCard>
 
           <S.SectionDetails>
-            <h2>Pikachu Zekrom</h2>
+            <h2>{name}</h2>
 
             <S.Attacks>
               <h3>Rules</h3>

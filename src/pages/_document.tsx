@@ -1,10 +1,11 @@
 import Document, {
   Html,
-  Head,
   Main,
+  Head,
   NextScript,
   DocumentContext,
 } from 'next/document';
+
 import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
@@ -36,14 +37,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="pt-BR">
-        <Head>
-          <title>Pokedex</title>
-          <link
-            rel="shortcut icon"
-            href="/img/favicon.png"
-            type="image/x-icon"
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

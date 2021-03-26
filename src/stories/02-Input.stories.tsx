@@ -16,7 +16,7 @@ export const Basic: Story<InputProps> = args => (
       }}
     >
       <Input
-        name="email"
+        // name="email"
         placeholder="Nome do úsuario ou email"
         type="text"
         {...args}
@@ -32,7 +32,7 @@ export const Password: Story<InputProps> = args => (
         console.log('ok');
       }}
     >
-      <Input name="password" placeholder="Senha" {...args} />
+      <Input placeholder="Senha" {...args} />
     </Form>
   </div>
 );

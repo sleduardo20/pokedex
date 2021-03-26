@@ -12,12 +12,7 @@ const Button: React.FC<ButtonProps> = ({
   ...rest
 }) => {
   return (
-    <Container
-      bg={bg}
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.99 }}
-      {...rest}
-    >
+    <Container bg={bg} {...rest}>
       {children}
     </Container>
   );

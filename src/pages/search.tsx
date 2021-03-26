@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import api from 'services/api';
 import TemplateSearch, { SearchProps } from '../templates/Search';
 
@@ -7,7 +7,7 @@ const Search = (props: SearchProps) => {
 };
 export default Search;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await api.get<SearchProps>('cards').then(response => {
     const dataFormated = response.data.data.map(item => ({
       id: item.id,
@@ -26,5 +26,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
     props: {
       data,
     },
+    revalidate: 60 * 60 * 24, // 24hs
   };
 };

@@ -6,12 +6,12 @@ import mock from '../components/Card/mock';
 export default {
   title: 'components/Card',
   component: Card,
-  args: {
-    name: mock.name,
-    size: 'large',
-    imageUrlHiRes: mock.images.large,
-    slug: mock.name,
-  },
+  // args: {
+  //   name: mock.name,
+  //   size: 'large',
+  //   imageUrlHiRes: mock.images.large,
+  //   slug: mock.name,
+  // },
 } as Meta;
 
 export const Basic: Story<CardProps> = args => <Card {...args} />;

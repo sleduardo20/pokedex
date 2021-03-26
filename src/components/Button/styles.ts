@@ -3,7 +3,7 @@ import styled, { css, DefaultTheme } from 'styled-components';
 
 type ContainerProps = {
   bg?: 'primary' | 'secondary' | 'darkBlue';
-} & MotionProps;
+};
 
 const modifiers = {
   primary: (theme: DefaultTheme) => css`
@@ -20,7 +20,7 @@ const modifiers = {
   `,
 };
 
-export const Container = styled(motion.button)<ContainerProps>`
+export const Container = styled.button<ContainerProps>`
   ${({ theme, bg }) => css`
     width: 24.3rem;
     height: 4.8rem;

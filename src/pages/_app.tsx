@@ -16,6 +16,11 @@ function App({ Component, pageProps }: AppProps) {
           <link rel="apple-touch-icon" href="/img/icon-512.png" />
           <link rel="manifest" href="/manifest.json" />
           <meta name="description" content="Project Pokedex" />
+          <link
+            rel="shortcut icon"
+            href="/img/favicon.png"
+            type="image/x-icon"
+          />
         </Head>
         <Component {...pageProps} />
         <GlobalStyles />

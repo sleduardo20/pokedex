@@ -1,9 +1,10 @@
-import dynamic from 'next/dynamic';
+import { useRef, useState } from 'react';
+
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
+
 import { FiPower, FiSearch } from 'react-icons/fi';
 
-import { useRef, useState } from 'react';
 import Button from 'components/Button';
 import Container from 'components/Container';
 import Content from 'components/Content';
@@ -17,29 +18,21 @@ import Loader from 'components/Loader';
 import * as S from './styles';
 
 export interface SearchProps {
-  listPokemons: {
-    data: CardProps[];
-  };
+  data: CardProps[];
 }
 
-interface FormData {
+interface FormlistPokemons {
   name: string;
 }
 
-const DynamicCard = dynamic(() => import('../../components/Card'), {
-  loading: ({ isLoading }) => <Loader />,
-});
-
-const TemplateSeach = ({ listPokemons }: SearchProps) => {
+const TemplateSeach = ({ data }: SearchProps) => {
   const formRef = useRef<FormHandles>(null);
 
-  const [listDefault, setListDefault] = useState<CardProps[]>(
-    listPokemons.data,
-  );
+  const [listDefault, setListDefault] = useState<CardProps[]>(data);
 
   const [loading, setIsLoading] = useState(false);
 
-  const [pokemons, setPokemons] = useState<CardProps[]>(listPokemons.data);
+  const [pokemons, setPokemons] = useState<CardProps[]>(data);
 
   const handleSubmit = (formData: FormData) => {
     const { name } = formData;
@@ -55,7 +48,7 @@ const TemplateSeach = ({ listPokemons }: SearchProps) => {
 
   const handleClear = () => {
     formRef.current?.clearField('name');
-    setPokemons(listPokemons.data);
+    setPokemons(data);
   };
 
   return (
@@ -80,7 +73,7 @@ const TemplateSeach = ({ listPokemons }: SearchProps) => {
                 icon={<FiSearch />}
               />
               <Button type="submit">Buscar</Button>
-              <Button onClick={handleClear} bg="secondary">
+              <Button type="button" onClick={handleClear} bg="secondary">
                 Limpar
               </Button>
             </Form>
@@ -91,7 +84,7 @@ const TemplateSeach = ({ listPokemons }: SearchProps) => {
         <h2>{pokemons.length} Cards </h2>
         <S.WrapperCards>
           {pokemons.map(card => (
-            <DynamicCard key={card.id} {...card} />
+            <Card key={card.id} {...card} />
           ))}
         </S.WrapperCards>
       </Content>
