@@ -64,7 +64,7 @@ const TemplateSeach = ({ data }: SearchProps) => {
               <Input
                 type="text"
                 name="name"
-                placeholder="Search"
+                placeholder="Search name pokemon..."
                 icon={<FiSearch />}
               />
               <Button type="submit">Buscar</Button>

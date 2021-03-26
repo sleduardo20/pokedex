@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
-import theme from 'styles/theme';
 
 export const HeaderContent = styled.div`
   ${({ theme }) => css`
@@ -90,6 +89,7 @@ export const WrapperCards = styled.main`
 
 export const WrapperContent = styled.div`
   ${({ theme }) => css`
+    width: 100%;
     margin-top: ${theme.spacings.xxxlarge};
     display: flex;
     flex-direction: column;

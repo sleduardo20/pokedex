@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from 'react';
 
-import { Container } from './styles';
+import * as S from './styles';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   bg?: 'primary' | 'secondary' | 'darkBlue';
@@ -12,9 +12,9 @@ const Button: React.FC<ButtonProps> = ({
   ...rest
 }) => {
   return (
-    <Container bg={bg} {...rest}>
+    <S.Container bg={bg} {...rest}>
       {children}
-    </Container>
+    </S.Container>
   );
 };
 

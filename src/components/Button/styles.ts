@@ -1,4 +1,4 @@
-import { motion, MotionProps } from 'framer-motion';
+import { motion } from 'framer-motion';
 import styled, { css, DefaultTheme } from 'styled-components';
 
 type ContainerProps = {
@@ -34,12 +34,12 @@ export const Container = styled.button<ContainerProps>`
     font-size: ${theme.font.size.large};
     font-weight: ${theme.font.medium};
     text-transform: uppercase;
-
     cursor: pointer;
-    transition: filter 0.2s ease-in-out;
+    transition: 0.1s ease-in-out;
 
     &:hover {
-      filter: brightness(105%);
+      filter: brightness(115%);
+      transform: scale(1.02);
     }
 
     ${!!bg && modifiers[bg](theme)};
