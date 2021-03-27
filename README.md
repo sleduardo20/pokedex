@@ -16,7 +16,6 @@
 
 
 ## ⛏️ Tecnologies
-----
 
 - [Nextjs](https://nextjs.org/docs)
 - [Reactjs](https://reactjs.org/docs/getting-started.html)
@@ -29,7 +28,7 @@
 </br>
 
 ## ⛏️ API
-----
+
 - [Pokémon TCG Developers](https://docs.pokemontcg.io/)
 </br>
 
@@ -53,5 +52,5 @@ $ yarn dev
 </br>
 
 ## ✍️ Author
-----
+
 Make by [@sleduardo20](https://github.com/sleduardo20)
