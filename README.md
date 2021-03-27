@@ -27,12 +27,10 @@
 - [Unform](https://unform.dev/installation)
 - [Framer-Motion](https://www.framer.com/api/motion/)
 </br>
-</br>
 
 ## ⛏️ API
 ----
 - [Pokémon TCG Developers](https://docs.pokemontcg.io/)
-</br>
 </br>
 
 ## 🚀 Installing
@@ -52,7 +50,6 @@ $ yarn install
 # Run the app
 $ yarn dev
 ```
-</br>
 </br>
 
 ## ✍️ Author
