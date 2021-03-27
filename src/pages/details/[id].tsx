@@ -1,49 +1,56 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { ParsedUrlQuery } from 'querystring';
+
 import api from 'services/api';
 
-import TemplateDetails, { DetailsProps } from '../../templates/Details';
-
-interface Params extends ParsedUrlQuery {
-  id: string;
-}
+import TemplateDetails, { Data, DetailsProps } from '../../templates/Details';
 
 const Details = (props: DetailsProps) => {
   return <TemplateDetails {...props} />;
 };
-
 export default Details;
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const data = await api
+    .get<DetailsProps>('cards')
+    .then(response => response.data);
+
+  const dataId = data.data.map((item: { id: string }) => ({
+    id: item.id,
+  }));
+
+  const paths = dataId.map(({ id }) => ({
+    params: { id },
+  }));
+
   return {
-    paths: [],
-    fallback: 'blocking',
+    paths,
+    fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps<Params> = async ({ params }) => {
-  const { data } = await api
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const pokemonsDetails = await api
     .get(`/cards/${params!.id}`)
-    .then(response => response.data);
+    .then(response => response.data.data);
 
-  const retreatCost = data.retreatCost ?? '';
-  const resistances = data.resistances ?? '';
-  const weaknesses = data.weaknesses ?? '';
-  const rarity = data.rarity ?? '';
-  const artist = data.artist ?? '';
+  const data = [
+    {
+      id: pokemonsDetails.id,
+      name: pokemonsDetails.name,
+      attacks: pokemonsDetails.attacks ?? [],
+      resistances: pokemonsDetails.resistances ?? [],
+      set: pokemonsDetails.set ?? {},
+      weaknesses: pokemonsDetails.weaknesses ?? [],
+      images: pokemonsDetails.images,
+      retreatCost: pokemonsDetails.retreatCost ?? [],
+      artist: pokemonsDetails.artist ?? '',
+      rarity: pokemonsDetails.rarity ?? '',
+    },
+  ];
 
   return {
     props: {
-      id: data.id,
-      name: data.name,
-      images: data.images,
-      attacks: data.attacks,
-      resistances,
-      set: data.set,
-      weaknesses,
-      retreatCost,
-      rarity,
-      artist,
+      data,
     },
   };
 };
