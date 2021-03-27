@@ -29,7 +29,7 @@ type Set = {
   name: string;
 };
 
-export interface DetailsProps {
+export type Data = {
   id: string;
   name: string;
   attacks?: Attacks[];
@@ -40,20 +40,13 @@ export interface DetailsProps {
   retreatCost?: string[];
   artist?: string;
   rarity?: string;
+};
+
+export interface DetailsProps {
+  data: Data[];
 }
 
-const Details = ({
-  id,
-  name,
-  attacks,
-  retreatCost,
-  resistances,
-  set,
-  weaknesses,
-  images,
-  artist,
-  rarity,
-}: DetailsProps) => {
+const Details = ({ data }: DetailsProps) => {
   return (
     <Container>
       <Header>
@@ -68,77 +61,84 @@ const Details = ({
         </Content>
       </Header>
       <Content>
-        <S.WrapperDetails>
-          <S.SectionCard>
-            <Card id={id} name={name} images={images} size="large" />
-          </S.SectionCard>
+        {data.map(detail => (
+          <S.WrapperDetails key={detail.id}>
+            <S.SectionCard>
+              <Card
+                id={detail.id}
+                name={detail.name}
+                images={detail.images}
+                size="large"
+              />
+            </S.SectionCard>
 
-          <S.SectionDetails>
-            <h2>{name}</h2>
+            <S.SectionDetails>
+              <h2>{detail.name}</h2>
 
-            {attacks?.map(item => (
-              <S.Attacks key={item.name}>
-                <h3>
-                  {item.name} | {item.damage}
-                </h3>
-                <p>{item.text}</p>
-              </S.Attacks>
-            ))}
+              {detail.attacks?.map(item => (
+                <S.Attacks key={item.name}>
+                  <h3>
+                    {item.name} | {item.damage}
+                  </h3>
+                  <p>{item.text}</p>
+                </S.Attacks>
+              ))}
 
-            <S.Particulars>
-              {weaknesses && (
-                <S.Feature>
-                  <strong>WEAKNESS</strong>
-                  {weaknesses.map(item => (
-                    <div key={item.type}>
-                      <span>{item.type}</span>
-                      <span>{item.value}</span>
-                    </div>
-                  ))}
-                </S.Feature>
-              )}
+              <S.Particulars>
+                {detail.weaknesses && (
+                  <S.Feature>
+                    <strong>WEAKNESS</strong>
+                    {detail.weaknesses.map(item => (
+                      <div key={item.type}>
+                        <span>{item.type}</span>
+                        <span>{item.value}</span>
+                      </div>
+                    ))}
+                  </S.Feature>
+                )}
 
-              {resistances && (
-                <S.Feature>
-                  <strong>RESISTANCES</strong>
-                  {resistances.map(item => (
-                    <div key={item.type}>
-                      <span>{item.type}</span>
-                      <span>{item.value}</span>
-                    </div>
-                  ))}
-                </S.Feature>
-              )}
+                {detail.resistances && (
+                  <S.Feature>
+                    <strong>RESISTANCES</strong>
+                    {detail.resistances.map(item => (
+                      <div key={item.type}>
+                        <span>{item.type}</span>
+                        <span>{item.value}</span>
+                      </div>
+                    ))}
+                  </S.Feature>
+                )}
 
-              {retreatCost && (
-                <S.Feature>
-                  <strong>RETREAT COST</strong>
-                  <span>{retreatCost[0]}</span>
-                </S.Feature>
-              )}
+                {detail.retreatCost && (
+                  <S.Feature>
+                    <strong>RETREAT COST</strong>
+                    <span>{detail.retreatCost[0]}</span>
+                  </S.Feature>
+                )}
 
-              {artist && (
-                <S.Feature>
-                  <strong>ARTIST</strong>
-                  <span>{artist}</span>
-                </S.Feature>
-              )}
-              {rarity && (
-                <S.Feature>
-                  <strong>ARTIST</strong>
-                  <span>{rarity}</span>
-                </S.Feature>
-              )}
+                {detail.artist && (
+                  <S.Feature>
+                    <strong>ARTIST</strong>
+                    <span>{detail.artist}</span>
+                  </S.Feature>
+                )}
+                {detail.rarity && (
+                  <S.Feature>
+                    <strong>ARTIST</strong>
+                    <span>{detail.rarity}</span>
+                  </S.Feature>
+                )}
 
-              {set && (
-                <S.Feature>
-                  <strong>SET</strong>
-                  <span>{set.name}</span>
-                </S.Feature>
-              )}
-            </S.Particulars>
-          </S.SectionDetails>
-        </S.WrapperDetails>
+                {detail.set && (
+                  <S.Feature>
+                    <strong>SET</strong>
+                    <span>{detail.set.name}</span>
+                  </S.Feature>
+                )}
+              </S.Particulars>
+            </S.SectionDetails>
+          </S.WrapperDetails>
+        ))}
       </Content>
     </Container>
   );
