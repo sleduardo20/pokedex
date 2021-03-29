@@ -1,21 +1,17 @@
 <p align="center">
-  <a href="" rel="noopener">
- <img width=600px height=200px src="https://raw.githubusercontent.com/sleduardo20/pokedex/0671af442dff1d8f7141e49eb83b438885bbc9e9/public/img/logo.svg" alt="Project logo"></a>
+ <img width=600px height=200px src="https://raw.githubusercontent.com/sleduardo20/pokedex/0671af442dff1d8f7141e49eb83b438885bbc9e9/public/img/logo.svg" alt="Project logo">
 </p>
 </br>
-
 
 <p align="center">
-  <a href="" rel="noopener">
-<img style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://raw.githubusercontent.com/sleduardo20/pokedex/main/.github/img/pokedex.gif"></a>
+<img style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://raw.githubusercontent.com/sleduardo20/pokedex/main/.github/img/pokedex.gif">
 </p>
-
 </br>
 </br>
 </br>
 
 
-## ⛏️ Tecnologies
+## ⛏️ Technologies
 
 - [Nextjs](https://nextjs.org/docs)
 - [Reactjs](https://reactjs.org/docs/getting-started.html)
@@ -33,7 +29,6 @@
 </br>
 
 ## 🚀 Installing
-----
 
 ```
 
