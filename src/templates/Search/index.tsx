@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
@@ -34,7 +34,7 @@ const TemplateSeach = ({ data }: SearchProps) => {
 
   const [pokemons, setPokemons] = useState<CardProps[]>(data);
 
-  const handleSubmit = ({ name }: FormData) => {
+  const handleSubmit = async ({ name }: FormData) => {
     const cards = listDefault.filter(pokemom =>
       pokemom.name.toLowerCase().includes(name.toLowerCase().trim()),
     );
@@ -48,6 +48,16 @@ const TemplateSeach = ({ data }: SearchProps) => {
     formRef.current?.clearField('name');
     setPokemons(data);
   };
+
+  const delay = 2;
+
+  useEffect(() => {
+    const timer1 = setTimeout(() => setIsLoading(true), delay * 1000);
+
+    return () => {
+      clearTimeout(timer1);
+    };
+  }, []);
 
   return (
     <Container>
@@ -75,16 +85,20 @@ const TemplateSeach = ({ data }: SearchProps) => {
           </S.HeaderContent>
         </Content>
       </Header>
-      <Content>
-        <S.WrapperContent>
-          <h2> {pokemons.length} cards </h2>
-          <S.WrapperCards>
-            {pokemons.map(card => (
-              <Card key={card.id} {...card} />
-            ))}
-          </S.WrapperCards>
-        </S.WrapperContent>
-      </Content>
+      {!loading ? (
+        <Loader />
+      ) : (
+        <Content>
+          <S.WrapperContent>
+            <h2> {pokemons.length} cards </h2>
+            <S.WrapperCards>
+              {pokemons.map(card => (
+                <Card key={card.id} {...card} />
+              ))}
+            </S.WrapperCards>
+          </S.WrapperContent>
+        </Content>
+      )}
     </Container>
   );
 };
