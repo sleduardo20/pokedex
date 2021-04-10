@@ -49,7 +49,7 @@ const TemplateSeach = ({ data }: SearchProps) => {
     setPokemons(data);
   };
 
-  const delay = 2;
+  const delay = 3;
 
   useEffect(() => {
     const timer1 = setTimeout(() => setIsLoading(true), delay * 1000);

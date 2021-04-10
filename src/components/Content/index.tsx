@@ -1,12 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
 const Wrapper = styled(motion.div)`
-  width: min(110rem, 100%);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${({ theme }) => css`
+    width: min(110rem, 100%);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: ${theme.spacings.medium};
+  `}
 `;
 
 const easing = [0.6, -0.05, 0.01, 0.99];

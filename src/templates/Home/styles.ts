@@ -14,8 +14,9 @@ export const HeaderContent = styled.div`
         margin-top: calc(${theme.spacings.xxxlarge} * 2);
 
         ${media.lessThan('medium')`
-          width : 36.6rem;
+          width : 30rem;
           height : 14.9rem;
+          padding:  ${theme.spacings.medium} ${theme.spacings.medium} 0;
         `}
       }
     }
@@ -31,6 +32,10 @@ export const WrapperForm = styled.div`
       ${theme.spacings.large};
     margin-top: calc(${theme.spacings.xxxlarge} * 5);
     border-radius: ${theme.spacings.medium};
+
+    ${media.lessThan('medium')`
+      width: 30rem;
+    `}
 
     form {
       width: 100%;

@@ -64,12 +64,7 @@ const Details = ({ data }: DetailsProps) => {
         {data.map(detail => (
           <S.WrapperDetails key={detail.id}>
             <S.SectionCard>
-              <Card
-                id={detail.id}
-                name={detail.name}
-                images={detail.images}
-                size="large"
-              />
+              <Card id={detail.id} name={detail.name} images={detail.images} />
             </S.SectionCard>
 
             <S.SectionDetails>

@@ -1,18 +1,36 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
+
+import Card from '../../components/Card';
 
 export const HeaderContent = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
+  ${({ theme }) => css`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
 
-  img {
-    margin-top: 6.2rem;
-  }
+    img {
+      margin-top: 6.2rem;
+    }
 
-  div {
-    margin-top: 9.2rem;
-  }
+    div {
+      margin-top: 9.2rem;
+    }
+
+    ${media.lessThan('medium')`
+      padding:  ${theme.spacings.medium} ${theme.spacings.medium} 0;
+      
+      div {
+        margin-top: 0;
+        padding: ${theme.spacings.xxxlarge} 0;
+      }
+      
+      img {
+        display: none;
+      }
+    `}
+  `}
 `;
 
 export const WrapperDetails = styled.article`
@@ -22,9 +40,20 @@ export const WrapperDetails = styled.article`
     justify-content: space-between;
     margin-top: calc(${theme.spacings.xxxlarge} * 2);
     margin-bottom: calc(${theme.spacings.xxxlarge} * 2);
+
+    ${media.lessThan('medium')`
+      width: 30rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    `}
   `}
 `;
-export const SectionCard = styled.section``;
+export const SectionCard = styled.section`
+  ${media.lessThan('medium')`
+      margin-bottom: 1.6rem;
+  `}
+`;
 
 export const SectionDetails = styled.section`
   ${({ theme }) => css`
@@ -42,6 +71,10 @@ export const SectionDetails = styled.section`
       padding-bottom: ${theme.spacings.xlarge};
       border-bottom: 1px solid ${theme.colors.gray};
     }
+
+    ${media.lessThan('medium')`
+      width: 30rem;
+  `}
   `}
 `;
 
@@ -75,6 +108,10 @@ export const Particulars = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     row-gap: ${theme.spacings.xxxlarge};
+
+    ${media.lessThan('medium')`
+      grid-template-columns: 1fr 1fr;
+    `}
   `}
 `;
 

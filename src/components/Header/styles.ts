@@ -4,13 +4,13 @@ import media from 'styled-media-query';
 export const Header = styled.header`
   ${({ theme }) => css`
     width: 100%;
-    height: 18rem;
+    height: 27rem;
     background: ${theme.colors.primary};
     display: flex;
     justify-content: center;
 
-    ${media.greaterThan('medium')`
-    height: 28rem;
+    ${media.lessThan('medium')`
+      height: min-content;
     `}
   `}
 `;

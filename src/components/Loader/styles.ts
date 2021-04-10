@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 export const Container = styled.div`
   width: 100%;
@@ -20,6 +21,12 @@ export const Base = styled.div`
   position: absolute;
   left: 50%;
   top: 72%;
+
+  ${media.lessThan('medium')`
+    width: 6rem;
+    left: 42%;
+    top: 88%;
+  `}
 `;
 
 export const Pokeball = styled.img`
@@ -30,6 +37,12 @@ export const Pokeball = styled.img`
   top: 50%;
   animation: ldio-18euhb50d7g 1s linear infinite;
   box-sizing: content-box;
+
+  ${media.lessThan('medium')`
+    width: 6rem;
+    left: 42%;
+    top: 52%;
+  `}
 
   @keyframes ldio-18euhb50d7g {
     0%,

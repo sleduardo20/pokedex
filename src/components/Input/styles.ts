@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 type ContainerProps = {
   isFocused: boolean;
@@ -8,6 +9,11 @@ type ContainerProps = {
 export const Container = styled.div<ContainerProps>`
   ${({ theme, isFilled }) => css`
     width: ${isFilled ? '34.8rem' : '100%'};
+
+    ${media.lessThan('medium')`
+      width: ${isFilled ? '28rem' : '100%'};
+    `}
+
     position: relative;
     padding: 0.2rem;
     height: 4.8rem;
@@ -28,6 +34,10 @@ export const Container = styled.div<ContainerProps>`
 
     &:focus-within {
       width: 34.8rem;
+
+      ${media.lessThan('medium')`
+      width: 28rem;
+    `}
     }
 
     &:focus-within label {
