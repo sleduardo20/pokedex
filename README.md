@@ -3,8 +3,10 @@
 </p>
 </br>
 
+<a href="https://pokedex.sleduardo.dev/" target="_blank">
 <p align="center">
 <img style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://raw.githubusercontent.com/sleduardo20/pokedex/main/.github/img/pokedex.gif">
+</a>
 </p>
 </br>
 </br>
