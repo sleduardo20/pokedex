@@ -8,6 +8,18 @@
 <img style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://raw.githubusercontent.com/sleduardo20/pokedex/main/.github/img/pokedex.gif">
 </a>
 </p>
+
+<p align="center" style="margin: auto">
+  Project in production
+</p>
+
+<a href="https://pokedex.sleduardo.dev/" rel="nofollow"  target="_blank">
+ <p align="center" style="margin: auto">
+  <img width="180" style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://freepngimg.com/thumb/click_here/11-2-click-here-png.png">
+ </p>
+  
+</a>  
+
 </br>
 </br>
 </br>
