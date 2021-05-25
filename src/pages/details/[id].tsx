@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import api from 'services/api';
+import { api } from 'services/api';
 
 import TemplateDetails, { Data, DetailsProps } from '../../templates/Details';
 
@@ -24,7 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
