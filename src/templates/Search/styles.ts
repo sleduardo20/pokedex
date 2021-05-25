@@ -92,18 +92,37 @@ export const WrapperCards = styled.main`
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 1.2rem;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
-    justify-content: center;
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    svg {
+      color: ${theme.colors.primary};
+      transition: 0.2s;
+
+      &:hover {
+        cursor: pointer;
+        color: ${theme.colors.darkBlue};
+      }
+    }
+
+    ${media.lessThan('medium')`
+    width: 90%;
+    margin-top: ${theme.spacings.xxxlarge};
+    `}
+  `}
+`;
+
+export const GridCards = styled.div`
+  ${({ theme }) => css`
     display: grid;
     grid-template-columns: repeat(3, 30rem);
     justify-items: center;
     row-gap: ${theme.spacings.xxxlarge};
 
     ${media.lessThan('medium')`
-    width: 90%;
     grid-template-columns: 30rem;
-    margin-top: ${theme.spacings.xxxlarge};
-    
     `}
   `}
 `;

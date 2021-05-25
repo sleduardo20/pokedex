@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
+import { useToasts } from 'react-toast-notifications';
 
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 
-import { FiPower, FiSearch } from 'react-icons/fi';
+import { FiArrowLeft, FiArrowRight, FiPower, FiSearch } from 'react-icons/fi';
 
 import Button from 'components/Button';
 import Container from 'components/Container';
@@ -15,49 +16,85 @@ import Card, { CardProps } from 'components/Card';
 import Icon from 'components/Icon';
 import Loader from 'components/Loader';
 
+import { api } from '../../services/api';
 import * as S from './styles';
 
 export interface SearchProps {
-  data: CardProps[];
+  cards: CardProps[];
+  page: string;
 }
 
 interface FormData {
   name: string;
 }
 
-const TemplateSeach = ({ data }: SearchProps) => {
+const TemplateSeach = ({ cards }: SearchProps) => {
   const formRef = useRef<FormHandles>(null);
+  const { addToast } = useToasts();
 
-  const [listDefault, setListDefault] = useState<CardProps[]>(data);
+  const [page, setPage] = useState(1);
+  const [error, setError] = useState('');
+  const [loading, setloading] = useState(true);
+  const [pokemon, setPokemon] = useState<CardProps[]>([]);
+  const [initialValues, setInitialValues] = useState<CardProps[]>([]);
 
-  const [loading, setIsLoading] = useState(false);
+  useEffect(() => {
+    const fethData = async () => {
+      await api
+        .get('cards', {
+          params: {
+            page,
+            pageSize: 6,
+          },
+        })
+        .then(response => {
+          const cardsData = response.data.data.map((card: CardProps) => ({
+            id: card.id,
+            name: card.name,
+            images: card.images,
+          }));
 
-  const [pokemons, setPokemons] = useState<CardProps[]>(data);
+          setPokemon(cardsData);
+          setInitialValues(cardsData);
+        })
+        .catch(response => setError(response.error))
+        .finally(() => setloading(false));
+    };
+
+    fethData();
+  }, [page]);
 
   const handleSubmit = async ({ name }: FormData) => {
-    const cards = listDefault.filter(pokemom =>
-      pokemom.name.toLowerCase().includes(name.toLowerCase().trim()),
-    );
+    await api
+      .get(`cards?q=name:${name}*`)
+      .then(response => {
+        const cardsData = response.data.data.map((card: CardProps) => ({
+          id: card.id,
+          name: card.name,
+          images: card.images,
+        }));
 
-    if (cards.length === 0) return alert('pokemom not found');
+        if (cardsData.length === 0) {
+          addToast('Pokemon não encontrado, tente novamente!', {
+            appearance: 'warning',
+            autoDismiss: true,
+          });
+        }
 
-    setPokemons(cards);
+        setPokemon(cardsData);
+      })
+      .catch(response => {
+        addToast('Erro na conexão, existe caracteres inválidos', {
+          appearance: 'error',
+          autoDismiss: true,
+        });
+      });
   };
 
   const handleClear = () => {
     formRef.current?.clearField('name');
-    setPokemons(data);
+    setPokemon(initialValues);
   };
-
-  const delay = 3;
-
-  useEffect(() => {
-    const timer1 = setTimeout(() => setIsLoading(true), delay * 1000);
-
-    return () => {
-      clearTimeout(timer1);
-    };
-  }, []);
 
   return (
     <Container>
@@ -85,17 +122,26 @@ const TemplateSeach = ({ data }: SearchProps) => {
           </S.HeaderContent>
         </Content>
       </Header>
-      {!loading ? (
+      {loading ? (
         <Loader />
       ) : (
         <Content>
           <S.WrapperContent>
-            <h2> {pokemons.length} cards </h2>
-            <S.WrapperCards>
-              {pokemons.map(card => (
-                <Card key={card.id} {...card} />
-              ))}
-            </S.WrapperCards>
+            {pokemon.length > 0 && (
+              <S.WrapperCards>
+                <FiArrowLeft
+                  size={34}
+                  onClick={() => setPage(page === 1 ? 1 : page - 1)}
+                />
+
+                <S.GridCards>
+                  {pokemon.map(card => (
+                    <Card key={card.id} {...card} />
+                  ))}
+                </S.GridCards>
+                <FiArrowRight size={34} onClick={() => setPage(page + 1)} />
+              </S.WrapperCards>
+            )}
           </S.WrapperContent>
         </Content>
       )}
