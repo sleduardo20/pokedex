@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 
-import Card from '../../components/Card';
-
 export const HeaderContent = styled.div`
   ${({ theme }) => css`
     width: 100%;

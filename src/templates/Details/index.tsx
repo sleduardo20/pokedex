@@ -4,6 +4,7 @@ import Content from 'components/Content';
 import Header from 'components/Header';
 import Icon from 'components/Icon';
 import Logo from 'components/Logo';
+import { useRouter } from 'next/dist/client/router';
 import { FiArrowLeft, FiPower } from 'react-icons/fi';
 
 import * as S from './styles';
