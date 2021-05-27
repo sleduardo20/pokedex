@@ -1,30 +1,25 @@
+import { CardProps } from 'components/Card';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { api } from 'services/api';
 
-import TemplateDetails, { Data, DetailsProps } from '../../templates/Details';
+import TemplateDetails, { DetailsProps } from '../../templates/Details';
 
 const Details = (props: DetailsProps) => {
   return <TemplateDetails {...props} />;
 };
 export default Details;
 
+type DataId = [
+  {
+    id: string;
+  },
+];
+
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await api
-    .get<DetailsProps>('cards')
-    .then(response => response.data);
-
-  const dataId = data.data.map((item: { id: string }) => ({
-    id: item.id,
-  }));
-
-  const paths = dataId.map(({ id }) => ({
-    params: { id },
-  }));
-
   return {
-    paths,
-    fallback: true,
+    paths: [],
+    fallback: 'blocking',
   };
 };
 

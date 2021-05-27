@@ -133,12 +133,16 @@ const TemplateSeach = ({ cards }: SearchProps) => {
                   size={34}
                   onClick={() => setPage(page === 1 ? 1 : page - 1)}
                 />
+                {loading ? (
+                  <Loader />
+                ) : (
+                  <S.GridCards>
+                    {pokemon.map(card => (
+                      <Card key={card.id} {...card} />
+                    ))}
+                  </S.GridCards>
+                )}
 
-                <S.GridCards>
-                  {pokemon.map(card => (
-                    <Card key={card.id} {...card} />
-                  ))}
-                </S.GridCards>
                 <FiArrowRight size={34} onClick={() => setPage(page + 1)} />
               </S.WrapperCards>
             )}
